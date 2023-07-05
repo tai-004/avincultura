@@ -1,0 +1,20 @@
+                  Alterações para Avincultura.LOG
+
+
+1-autenticação simples.(ultimo a ser feito)
+-cadastro
+-login 
+
+2- CRUD: diario.
+
+-data/hora. 
+-se possivel formar um novo CRUD todos os dias, com a data automatica.
+-maior temperatura 
+-deixar fixo de inicio: quantidade de frangos iniciais, mortes de frangos, quantidade de frangos no final.
+-pequena descrição de todos os dias
+
+3- notificação no proprio software:
+
+-para o registro diario
+-em caso de temperatura muito elevada
+
