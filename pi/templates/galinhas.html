@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notificação de Temperatura</title>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js"></script>
+</head>
+<body>
+  <!-- Seu conteúdo HTML -->
+sssssssss
+  <script>
+    // Configurar o Firebase
+    const firebaseConfig = {
+      "apiKey": "AIzaSyBZiIyPOr4uEqLtyLYwsHrTao9vyEirSMY",
+      "authDomain": "projled-111c9.firebaseapp.com",
+      "databaseURL": "https://projled-111c9-default-rtdb.firebaseio.com",
+      "projectId": "projled-111c9",
+      "storageBucket": "projled-111c9.appspot.com",
+      "messagingSenderId": "456228891378",
+      "appId": "1:456228891378:web:b6b778c8b2cb12d21e7e6b",
+      "measurementId": "G-1FF4QYE8WX"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    // Referenciar o nó da temperatura no Firebase Realtime Database
+    const temperaturaRef = firebase.database().ref("temperatura");
+
+    // Monitorar alterações na temperatura
+    temperaturaRef.on("value", function(snapshot) {
+      const temperatura = snapshot.val();
+
+      if (temperatura >= 38) {
+        // Verificar se o navegador suporta notificações
+        if ("Notification" in window && Notification.permission === "granted") {
+          // Cria a notificação
+          const notification = new Notification("Alerta de Temperatura",
+            {
+              body: `A temperatura atual é ${temperatura}°C, acima de 38°C!`
+            }
+          );
+        }
+      }
+    });
+  </script>
+</body>
+</html>
